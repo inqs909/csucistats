@@ -1,6 +1,6 @@
 #' sse
 #'
-#' @param object Object to extract the sum of error squared.
+#' @param object An R object that contains the results of the `lm` function.
 #'
 #' @export
 #'

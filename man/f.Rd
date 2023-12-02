@@ -2,13 +2,13 @@
 % Please edit documentation in R/f.R
 \name{f}
 \alias{f}
-\title{f}
+\title{Extract the F Statistic}
 \usage{
 f(object)
 }
 \arguments{
-\item{object}{Model to extract F Statistic}
+\item{object}{An R object that contains the results of the `lm` function.}
 }
 \description{
-f
+Extract the F Statistic
 }

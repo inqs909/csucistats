@@ -1,6 +1,6 @@
 Package: csucistats
 Type: Package
-Title: CSU Channel Islands R Tools and Data
+Title: CSU Channel Islands R Tools
 Version: 0.1.0
 Author: c(
   person("Isaac", "Quintanilla Salinas", 

@@ -2,15 +2,16 @@
 % Please edit documentation in R/b.R
 \name{b}
 \alias{b}
-\title{Title}
+\title{Extract the regression coefficients}
 \usage{
-b(model, index = NULL)
+b(object, index = NULL)
 }
 \arguments{
-\item{model}{Model to extract coefficients.}
+\item{object}{An R object that contains the results of the `lm` function.}
 
 \item{index}{Index indicating which coefficients to obtain.}
 }
 \description{
-Title
+The regression coefficients demonstrates how a set of predictor
+variables will affect the outcome of interest
 }

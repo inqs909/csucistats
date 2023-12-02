@@ -2,7 +2,7 @@
 % Please edit documentation in R/resample.R
 \name{resample}
 \alias{resample}
-\title{resample}
+\title{Sample a data frame with replacement}
 \usage{
 resample(df)
 }
@@ -10,5 +10,5 @@ resample(df)
 \item{df}{Data frame to be sampled with replacement}
 }
 \description{
-resample
+Sample a data frame with replacement
 }

@@ -2,13 +2,13 @@
 % Please edit documentation in R/shuffle.R
 \name{shuffle}
 \alias{shuffle}
-\title{shuffle}
+\title{Reorder the data of a vector}
 \usage{
 shuffle(x)
 }
 \arguments{
-\item{x}{Vecto to be shuffle the order of the values.}
+\item{x}{A vector to be shuffle the order of the values.}
 }
 \description{
-shuffle
+Reorder the data of a vector
 }

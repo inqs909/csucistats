@@ -1,4 +1,4 @@
-#' press
+#' Repeat a task numerous times
 #'
 #' @param expr Expression to be evaluated multiple times.
 #' @param sim The number of times to evaluate an the expression.

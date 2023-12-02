@@ -7,7 +7,7 @@
 sse(object)
 }
 \arguments{
-\item{object}{Object to extract the sum of error squared.}
+\item{object}{An R object that contains the results of the `lm` function.}
 }
 \description{
 sse

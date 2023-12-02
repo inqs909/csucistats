@@ -7,7 +7,7 @@
 r2(object)
 }
 \arguments{
-\item{object}{Model used to extract R-Squared Value}
+\item{object}{An R object that contains the results of the `lm` function.}
 }
 \description{
 r2

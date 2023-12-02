@@ -1,6 +1,6 @@
-#' f
+#' Extract the F Statistic
 #'
-#' @param object Model to extract F Statistic
+#' @param object An R object that contains the results of the `lm` function.
 #'
 #' @export
 #'

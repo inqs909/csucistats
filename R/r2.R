@@ -1,6 +1,6 @@
 #' r2
 #'
-#' @param object Model used to extract R-Squared Value
+#' @param object An R object that contains the results of the `lm` function.
 #'
 #' @export
 #'

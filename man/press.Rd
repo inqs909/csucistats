@@ -2,7 +2,7 @@
 % Please edit documentation in R/press.R
 \name{press}
 \alias{press}
-\title{press}
+\title{Repeat a task numerous times}
 \usage{
 press(expr, sim)
 }
@@ -12,5 +12,5 @@ press(expr, sim)
 \item{sim}{The number of times to evaluate an the expression.}
 }
 \description{
-press
+Repeat a task numerous times
 }

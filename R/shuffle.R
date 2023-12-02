@@ -1,6 +1,6 @@
-#' shuffle
+#' Reorder the data of a vector
 #'
-#' @param x Vecto to be shuffle the order of the values.
+#' @param x A vector to be shuffle the order of the values.
 #'
 #' @export
 #'
