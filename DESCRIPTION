@@ -14,11 +14,11 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.3.0)
 Imports: 
-    tibble
+    tibble,
+    dplyr
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.2.3
 Suggests: 
     broom,
-    dplyr,
     ggplot2,
     rlang
