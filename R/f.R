@@ -6,7 +6,7 @@
 #'
 
 f <- function(object){
-  if (inherits(object, "lm")){
+  if (!inherits(object, "lm")){
     stop("Object must be obtained from the lm() function.")
   }
   summary(object)$fstatistic[1] |> as.numeric()

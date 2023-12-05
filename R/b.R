@@ -10,7 +10,7 @@
 #'
 
 b <- function(object, index = NULL){
-  if (inherits(object, "lm")){
+  if (!inherits(object, "lm")){
     stop("Object must be obtained from the lm() function.")
   }
   if (is.null(index)){

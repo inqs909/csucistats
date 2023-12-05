@@ -10,7 +10,7 @@ press <- function(expr, sim){
   if (!is.numeric(first) & !length(first)){
     stop("Make sure the expression gives you only one number.")
   } else {
-   post <- replicate(sim, eval(expr))
+   post <- sapply(1:sim, function(i){eval(expr)})
   }
   return(tibble::tibble(sim = post))
 }

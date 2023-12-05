@@ -5,7 +5,7 @@
 #' @export
 #'
 sse <- function(object){
-  if (inherits(object, "lm")){
+  if (!inherits(object, "lm")){
     stop("Object must be obtained from the lm() function.")
   }
   sum(stats::resid(object)^2)
