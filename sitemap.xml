@@ -16,6 +16,9 @@
     <loc>http://www.inqs.info/csucistats/reference/b.html</loc>
   </url>
   <url>
+    <loc>http://www.inqs.info/csucistats/reference/bottom.html</loc>
+  </url>
+  <url>
     <loc>http://www.inqs.info/csucistats/reference/cat_stats.html</loc>
   </url>
   <url>
@@ -26,6 +29,9 @@
   </url>
   <url>
     <loc>http://www.inqs.info/csucistats/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.inqs.info/csucistats/reference/middle.html</loc>
   </url>
   <url>
     <loc>http://www.inqs.info/csucistats/reference/num_stats.html</loc>
@@ -44,5 +50,8 @@
   </url>
   <url>
     <loc>http://www.inqs.info/csucistats/reference/sse.html</loc>
+  </url>
+  <url>
+    <loc>http://www.inqs.info/csucistats/reference/top.html</loc>
   </url>
 </urlset>
