@@ -2,7 +2,7 @@
 % Please edit documentation in R/sse.R
 \name{sse}
 \alias{sse}
-\title{sse}
+\title{Compute the sum of error squared for an R object}
 \usage{
 sse(object)
 }
@@ -10,5 +10,5 @@ sse(object)
 \item{object}{An R object that contains the results of the `lm` function.}
 }
 \description{
-sse
+Compute the sum of error squared for an R object
 }

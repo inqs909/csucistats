@@ -5,6 +5,9 @@
 #' @export
 #'
 resample <- function(df){
+  if (!is.data.frame(df)){
+    stop("The df object must be a data frame.")
+  }
   sample(df, replace = T)
 }
 

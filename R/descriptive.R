@@ -1,6 +1,6 @@
-#' Obtain Numerical Statistics From a Vector
+#' Obtain Numerical Statistics
 #'
-#' @param x Vector
+#' @param x A numerical or integer vector.
 #'
 #' @export
 #' @importFrom stats quantile median sd var IQR
@@ -26,7 +26,7 @@ num_stats <- function(x){
 #'
 #' @export
 #'
-char_stats <- function(x){
+cat_stats <- function(x){
   tbl <- table(x)
   ptbl <- prop.table(tbl) |> round(digits = 3)
   miss <- sum(is.na(x))
@@ -41,12 +41,15 @@ char_stats <- function(x){
 
 #' Obtain Descriptive Statistics from a data frame.
 #'
-#' @param df an R data frame used for further analysis.
+#' @param df An R data frame used for further analysis.
 #'
 #' @export
 #'
 #'
 descriptive <- function(df){
+  if (!is.data.frame(df)){
+    stop("The object 'df' must be a data frame.")
+  }
   df_numeric <- df |> Filter(is.numeric, x = _)
   col_names_numeric <- names(df_numeric)
   df_character <- df |> (\(.) {cbind(Filter(is.character, .), Filter(is.factor, .))})()
@@ -61,7 +64,7 @@ descriptive <- function(df){
   }
 
   if (length(col_names_character) != 0){
-    characters <- df_character |> lapply(char_stats)
+    characters <- df_character |> lapply(cat_stats)
   }
   if (!is.null(numeric) & !is.null(characters)){
     post <- list(Numerical = numeric, Categorical = characters)

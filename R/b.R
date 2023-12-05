@@ -10,6 +10,9 @@
 #'
 
 b <- function(object, index = NULL){
+  if (inherits(object, "lm")){
+    stop("Object must be obtained from the lm() function.")
+  }
   if (is.null(index)){
     post <- stats::coef(object)
   } else if (length(index) == 1){

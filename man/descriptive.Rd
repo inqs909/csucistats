@@ -7,7 +7,7 @@
 descriptive(df)
 }
 \arguments{
-\item{df}{an R data frame used for further analysis.}
+\item{df}{An R data frame used for further analysis.}
 }
 \description{
 Obtain Descriptive Statistics from a data frame.

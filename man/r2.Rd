@@ -2,7 +2,7 @@
 % Please edit documentation in R/r2.R
 \name{r2}
 \alias{r2}
-\title{r2}
+\title{Obtained the R-Squared Value from a Linear Model}
 \usage{
 r2(object)
 }
@@ -10,5 +10,5 @@ r2(object)
 \item{object}{An R object that contains the results of the `lm` function.}
 }
 \description{
-r2
+Obtained the R-Squared Value from a Linear Model
 }

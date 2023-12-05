@@ -2,13 +2,13 @@
 % Please edit documentation in R/descriptive.R
 \name{num_stats}
 \alias{num_stats}
-\title{Obtain Numerical Statistics From a Vector}
+\title{Obtain Numerical Statistics}
 \usage{
 num_stats(x)
 }
 \arguments{
-\item{x}{Vector}
+\item{x}{A numerical or integer vector.}
 }
 \description{
-Obtain Numerical Statistics From a Vector
+Obtain Numerical Statistics
 }
