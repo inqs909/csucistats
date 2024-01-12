@@ -20,7 +20,8 @@ Imports:
     learnr,
     gradethis,
     learnrhash,
-    ggcheck
+    ggcheck,
+    rsconnect
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.2.3
 Suggests: 
