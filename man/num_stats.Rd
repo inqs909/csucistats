@@ -2,7 +2,7 @@
 % Please edit documentation in R/descriptive.R
 \name{num_stats}
 \alias{num_stats}
-\title{Obtain Numerical Statistics}
+\title{Obtain Numerical Statistics for a Continuous Variable}
 \usage{
 num_stats(x)
 }
@@ -10,5 +10,5 @@ num_stats(x)
 \item{x}{A numerical or integer vector.}
 }
 \description{
-Obtain Numerical Statistics
+Obtain Numerical Statistics for a Continuous Variable
 }

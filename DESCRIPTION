@@ -15,10 +15,19 @@ LazyData: true
 Depends: R (>= 4.3.0)
 Imports: 
     tibble,
-    dplyr
+    dplyr,
+    ggplot2,
+    learnr,
+    gradethis,
+    learnrhash,
+    ggcheck
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.2.3
 Suggests: 
     broom,
-    ggplot2,
     rlang
+Remotes: 
+    rstudio/gradethis,
+    rundel/learnrhash,
+    rstudio/ggcheck
+

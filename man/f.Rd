@@ -4,10 +4,12 @@
 \alias{f}
 \title{Extract the F Statistic}
 \usage{
-f(object)
+f(object, data = NULL)
 }
 \arguments{
-\item{object}{An R object that contains the results of the `lm` function.}
+\item{object}{An R object that is a `formula` or contains the results of the `lm` function.}
+
+\item{data}{A data frame when the object is a formula.}
 }
 \description{
 Extract the F Statistic

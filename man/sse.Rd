@@ -4,10 +4,12 @@
 \alias{sse}
 \title{Compute the sum of error squared for an R object}
 \usage{
-sse(object)
+sse(object, data = NULL)
 }
 \arguments{
-\item{object}{An R object that contains the results of the `lm` function.}
+\item{object}{An R object that is a `formula` or contains the results of the `lm` function.}
+
+\item{data}{A data frame when the object is a formula.}
 }
 \description{
 Compute the sum of error squared for an R object

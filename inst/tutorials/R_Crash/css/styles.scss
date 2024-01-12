@@ -1,0 +1,217 @@
+/*****************/
+/*CI Elements */
+/*****************/
+
+$cired: #cb132a !default;
+$cisilver: #999999 !default;
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.75em;
+}
+
+a.nav-link {
+  font-size: 1.25em;
+}
+
+footer.topicsFooter {
+  font-size: 1.5em;
+}
+
+h1, h2 {
+  font-family: prenton,Gill Sans MT,Gill Sans,Helvetica Neue,Helvetica,sans-serif;
+  color: $cired;
+}
+
+h3, h4, h5{
+  font-style: italic;
+  font-family: prenton,Gill Sans MT,Gill Sans,Helvetica Neue,Helvetica,sans-serif;
+  color: $cired;
+}
+
+a {
+    color: $cired;
+    text-decoration: none;
+}
+
+
+.btn {
+  background-color: $cisilver;
+  color: #fff;
+}
+
+.btn-default {
+    color: #ffffff;
+    background-color: $cisilver;
+    border: none;
+}
+
+.btn-light {
+  background-color: $cisilver;
+  color: #fff;
+}
+
+.btn-primary , .btn-success, .btn-info{
+  background-color: $cisilver;
+  color: #fff;
+}
+
+.btn:hover, .btn:active, .btn:disabled {
+  background-color: $cisilver;
+  color: #fff;
+}
+
+/****************/
+/* Code     */
+/****************/
+
+code {
+    color: $cired;
+    background-color:  #f7f7f7;
+    font-size: 14px;
+}
+
+
+/****************/
+/* Recuadro para ejemplos */
+/****************/
+
+
+.danger {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding-left: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border-left: 8px solid #f44336;
+}
+
+.danger h4 {
+  padding-left: 5px;
+  margin-left: -5px;
+  background-color: #ffdddd;
+  color: #36454F;
+}
+
+
+
+.success {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding-left: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border-left: 8px solid #04AA6D;
+}
+
+.success h4 {
+  padding-left: 5px;
+  margin-left: -5px;
+  background-color: #ddffdd;
+  color: #36454F;
+}
+
+.warning {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding-left: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border-left: 8px solid #ff7518;
+}
+
+.warning h4 {
+  padding-left: 5px;
+  margin-left: -5px;
+  background-color: #fff1e8;
+  color: #36454F;
+}
+
+.contents {
+  padding-bottom: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border-left: 8px solid $cired;
+
+}
+
+.contents  h3{
+  padding-left: 10px;
+  background-color: #ffdddd;
+}
+
+.info {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding-left: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border-left: 8px solid #2196F3;
+}
+
+.info h4 {
+  padding-left: 5px;
+  margin-left: -5px;
+  background-color: #e7f3fe;
+  color: #36454F;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  h2 {
+    page-break-before:always;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}

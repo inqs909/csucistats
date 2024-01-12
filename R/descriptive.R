@@ -1,4 +1,4 @@
-#' Obtain Numerical Statistics
+#' Obtain Numerical Statistics for a Continuous Variable
 #'
 #' @param x A numerical or integer vector.
 #'
