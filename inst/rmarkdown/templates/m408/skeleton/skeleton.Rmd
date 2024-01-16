@@ -1,0 +1,21 @@
+---
+title: "Title"
+author: "Name Here"
+date: "`r format(Sys.time(),'%m-%d-%Y')`"
+output: 
+  html_document:
+    code_download: true
+    toc: true
+    toc_float: true
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T)
+knitr::opts_chunk$set(message =  F)
+knitr::opts_chunk$set(warning =  F)
+# Comment line below if you want to errors to prevent knitting
+knitr::opts_chunk$set(error = T)
+```
+
+
