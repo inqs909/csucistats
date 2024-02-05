@@ -16,6 +16,8 @@ knitr::opts_chunk$set(message =  F)
 knitr::opts_chunk$set(warning =  F)
 # Comment line below if you want to errors to prevent knitting
 knitr::opts_chunk$set(error = T)
+options(digits = 3)
+options(max.print = 100)
 ```
 
 
