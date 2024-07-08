@@ -1,60 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://www.inqs.info/csucistats/404.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/authors.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/index.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/access_tutorial.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/b.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/bottom.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/cat_stats.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/descriptive.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/f.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/middle.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/num_stats.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/press.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/r2.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/resample.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/shuffle.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/sse.html</loc>
-  </url>
-  <url>
-    <loc>http://www.inqs.info/csucistats/reference/top.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://www.inqs.info/csucistats/404.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/LICENSE-text.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/LICENSE.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/authors.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/index.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/b.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/bottom.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/cat_stats.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/descriptive.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/f.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/index.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/middle.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/num_stats.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/press.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/r2.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/resample.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/shuffle.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/sse.html</loc></url>
+<url><loc>http://www.inqs.info/csucistats/reference/top.html</loc></url>
 </urlset>
+
