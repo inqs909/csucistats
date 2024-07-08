@@ -1,15 +1,15 @@
 Package: csucistats
 Type: Package
 Title: CSU Channel Islands R Tools
-Version: 0.1.0
+Version: 0.2.0
 Author: c(
   person("Isaac", "Quintanilla Salinas", 
   role = c("aut","cre"), email = "inqs.909@gmail.com",
   comment = c(ORCID = "0000-0002-1137-4310"))
   )
 Maintainer: Isaac Quintanilla Salinas <inqs.909@gmail.com>
-Description: An R package containing functions and tutorials for statistics courses at CSUCI.
-License: CC BY 4.0
+Description: An R package containing functions for statistics courses at CSUCI.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.3.0)
