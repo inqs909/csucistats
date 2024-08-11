@@ -10,7 +10,8 @@
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
-The goal of `csucistats` is to provide helper functions to be used in
+The goal of `csucistats` is to provide helper functions to be used at
+California State University Channel Islands.
 
 ## Installation
 
