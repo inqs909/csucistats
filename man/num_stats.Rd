@@ -4,10 +4,12 @@
 \alias{num_stats}
 \title{Obtain Numerical Statistics for a Continuous Variable}
 \usage{
-num_stats(x)
+num_stats(x, tbl = TRUE)
 }
 \arguments{
 \item{x}{A numerical or integer vector.}
+
+\item{tbl}{A logical indicating whether to return a tibble or not, defaults to TRUE.}
 }
 \description{
 Obtain Numerical Statistics for a Continuous Variable

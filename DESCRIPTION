@@ -16,7 +16,10 @@ Depends: R (>= 4.3.0)
 Imports: 
     tibble,
     dplyr,
-    ggplot2
+    ggplot2,
+    stringr,
+    styler,
+    rstudioapi
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.3.1
 Suggests: 

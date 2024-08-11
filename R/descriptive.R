@@ -1,13 +1,17 @@
 #' Obtain Numerical Statistics for a Continuous Variable
 #'
 #' @param x A numerical or integer vector.
+#' @param tbl A logical indicating whether to return a tibble or not, defaults to TRUE.
 #'
 #' @export
 #' @importFrom stats quantile median sd var IQR
 #'
 
-num_stats <- function(x){
-  c(min = min(x, na.rm = T),
+num_stats <- function(x, tbl = TRUE){
+  if (!is.vector(x) | !is.numeric(x)){
+    stop("The supplied vector or variable must be numeric. Use the dollar sign code on your data set.")
+  }
+  post <- tibble::tibble(min = min(x, na.rm = T),
     q25 = quantile(x, na.rm = T, probs = 0.25) |>  as.numeric(),
     mean = mean(x, na.rm = T),
     median = median(x, na.rm = T),
@@ -17,6 +21,11 @@ num_stats <- function(x){
     var = var(x, na.rm = T),
     iqr = IQR(x, na.rm = T),
     missing = sum(is.na(x))) |> round(digits = 3)
+  if(tbl){
+    return(post)
+  } else {
+    return(unlist(post))
+  }
 }
 
 
@@ -27,6 +36,9 @@ num_stats <- function(x){
 #' @export
 #'
 cat_stats <- function(x){
+  if (!is.vector(x) | !is.character(x)){
+    stop("The supplied vector or variable must be a string (categorical). Use the dollar sign code on your data set.")
+  }
   tbl <- table(x)
   ptbl <- prop.table(tbl) |> round(digits = 3)
   miss <- sum(is.na(x))
@@ -54,13 +66,15 @@ descriptive <- function(df){
   col_names_numeric <- names(df_numeric)
   df_character <- df |> (\(.) {cbind(Filter(is.character, .), Filter(is.factor, .))})()
   col_names_character <- names(df_character)
-  df_character |> sapply(table)
 
   numeric <- NULL
   characters <- NULL
 
   if (length(col_names_numeric) != 0){
-    numeric <- df_numeric |> sapply(num_stats) |> t() |> tibble::as_tibble(rownames = "Variable")
+    numeric <- df_numeric |>
+      sapply(num_stats, tbl = FALSE) |>
+      t() |>
+      tibble::as_tibble(rownames = "Variable")
   }
 
   if (length(col_names_character) != 0){
@@ -73,7 +87,6 @@ descriptive <- function(df){
   } else {
     post <- list(Categorical = characters)
   }
-
   return(post)
 }
 
