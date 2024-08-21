@@ -4,10 +4,16 @@
 \alias{cat_stats}
 \title{Obtain Frequencies and Proportions for a Categorical Variable}
 \usage{
-cat_stats(x)
+cat_stats(x, y = NULL, prop = "all", df = FALSE)
 }
 \arguments{
 \item{x}{Vector}
+
+\item{y}{Vector for Cross-tabulations.}
+
+\item{prop}{Character indicating what type of proportions to provide. Defaults to "all".}
+
+\item{df}{Logical indicating to provide a tibble for cross tabulations with table proportions.}
 }
 \description{
 Obtain Frequencies and Proportions for a Categorical Variable

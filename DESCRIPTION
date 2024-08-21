@@ -17,6 +17,7 @@ Imports:
     tibble,
     dplyr,
     ggplot2,
+    gmodels,
     stringr,
     styler,
     rstudioapi

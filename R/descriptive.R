@@ -8,7 +8,7 @@
 #'
 
 num_stats <- function(x, tbl = TRUE){
-  if (!is.vector(x) | !is.numeric(x)){
+  if (!(is.vector(x) & is.numeric(x))){
     stop("The supplied vector or variable must be numeric. Use the dollar sign code on your data set.")
   }
   post <- tibble::tibble(min = min(x, na.rm = T),
@@ -32,21 +32,80 @@ num_stats <- function(x, tbl = TRUE){
 #' Obtain Frequencies and Proportions for a Categorical Variable
 #'
 #' @param x Vector
+#' @param y Vector for Cross-tabulations.
+#' @param prop Character indicating what type of proportions to provide. Defaults to "all".
+#' @param df Logical indicating to provide a tibble for cross tabulations with table proportions.
 #'
 #' @export
 #'
-cat_stats <- function(x){
-  if (!is.vector(x) | !is.character(x)){
-    stop("The supplied vector or variable must be a string (categorical). Use the dollar sign code on your data set.")
+#' @importFrom gmodels CrossTable
+#'
+cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
+  if (!prop %in% c("all", "row", "col", "table")){
+    stop("The prop argument must either be 'all', 'row', 'col', 'table'.")
   }
-  tbl <- table(x)
-  ptbl <- prop.table(tbl) |> round(digits = 3)
-  miss <- sum(is.na(x))
-  pmiss <- miss / length(x) |>  round(digits = 3)
-  post <- tbl |> tibble::as_tibble() |>
-    tibble::add_column(prop = as.numeric(ptbl)) |>
-    tibble::add_row(x = "mising", n = miss, prop = pmiss)
-  colnames(post) <- c("Category", "n", "prop")
+  if (is.null(y)){
+    px <- x |> as.character() |> as.vector()
+    tbl <- table(px)
+    ptbl <- prop.table(tbl) |> round(digits = 3)
+    miss <- sum(is.na(px))
+    pmiss <- miss / length(px) |>  round(digits = 3)
+    post <- tbl |> tibble::as_tibble() |>
+      tibble::add_column(prop = as.numeric(ptbl)) |>
+      tibble::add_row(px = "mising", n = miss, prop = pmiss)
+    colnames(post) <- c("Category", "n", "prop")
+  } else {
+    if (!df){
+      px <- x |> as.character() |> as.vector()
+      py <- y |> as.character() |> as.vector()
+      if (prop == "table"){
+        post <- gmodels::CrossTable(px, py,  digits=1,
+                                    prop.r=FALSE,
+                                    prop.c=FALSE,
+                                    prop.t=TRUE,
+                                    format=c("SPSS"),
+                                    dnn = c(paste(deparse(substitute(x))),
+                                            paste(deparse(substitute(y))))
+                                    )
+      }
+      if (prop == "row") {
+        post <- gmodels::CrossTable(px, py,  digits=1,
+                                    prop.r=TRUE,
+                                    prop.c=FALSE,
+                                    prop.t=FALSE,
+                                    format=c("SPSS"),
+                                    dnn = c(paste(deparse(substitute(x))),
+                                            paste(deparse(substitute(y))))
+        )
+      }
+      if (prop == "col") {
+        post <- gmodels::CrossTable(px, py,  digits=1,
+                                    prop.r=FALSE,
+                                    prop.c=TRUE,
+                                    prop.t=FALSE,
+                                    format=c("SPSS"),
+                                    dnn = c(paste(deparse(substitute(x))),
+                                            paste(deparse(substitute(y))))
+        )
+      }
+      if (prop == "all") {
+        post <- gmodels::CrossTable(px, py,  digits=1,
+                                    prop.r=TRUE,
+                                    prop.c=TRUE,
+                                    prop.t=TRUE,
+                                    format=c("SPSS"),
+                                    dnn = c(paste(deparse(substitute(x))),
+                                            paste(deparse(substitute(y))))
+        )
+      }
+    } else {
+      wdf <- tibble::tibble(px, py)
+      nn <- nrow(wdf)
+      wdf |> dplyr::group_by(px, py) |>
+        dplyr::summarise(n = dplyr::n(),
+                         table_prop = dplyr::n() / nn)
+    }
+  }
   return(post)
 }
 
