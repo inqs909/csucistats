@@ -35,27 +35,37 @@ num_stats <- function(x, tbl = TRUE){
 #' @param y Vector for Cross-tabulations.
 #' @param prop Character indicating what type of proportions to provide. Defaults to "all".
 #' @param df Logical indicating to provide a tibble for cross tabulations with table proportions.
+#' @param pie Logical indicating if you need a df for a single variable pie chart.
 #'
 #' @export
 #'
 #' @importFrom gmodels CrossTable
 #'
-cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
+cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
   if (!prop %in% c("all", "row", "col", "table")){
     stop("The prop argument must either be 'all', 'row', 'col', 'table'.")
   }
   if (is.null(y)){
-    px <- x |> as.character() |> as.vector()
-    tbl <- table(px)
-    ptbl <- prop.table(tbl) |> round(digits = 3)
-    miss <- sum(is.na(px))
-    pmiss <- miss / length(px) |>  round(digits = 3)
-    post <- tbl |> tibble::as_tibble() |>
-      tibble::add_column(prop = as.numeric(ptbl)) |>
-      tibble::add_row(px = "total", n = length(x) - miss, prop = NA) |>
-      tibble::add_row(px = "mising", n = miss, prop = NA) |>
-      tibble::add_row(px = "overall total", n = length(x), prop = NA)
-    colnames(post) <- c("Category", "n", "prop")
+    if (!pie){
+      px <- x |> as.character() |> as.vector()
+      tbl <- table(px)
+      ptbl <- prop.table(tbl) |> round(digits = 3)
+      miss <- sum(is.na(px))
+      pmiss <- miss / length(px) |>  round(digits = 3)
+      post <- tbl |> tibble::as_tibble() |>
+        tibble::add_column(prop = as.numeric(ptbl)) |>
+        tibble::add_row(px = "total", n = length(x) - miss, prop = NA) |>
+        tibble::add_row(px = "mising", n = miss, prop = NA) |>
+        tibble::add_row(px = "overall total", n = length(x), prop = NA)
+      colnames(post) <- c("Category", "n", "prop")
+    } else {
+      px <- x |> as.character() |> as.vector()
+      tbl <- table(px)
+      miss <- sum(is.na(px))
+      post <- tbl |> tibble::as_tibble() |>
+        tibble::add_row(px = "mising", n = miss)
+      colnames(post) <- c("Category", "n")
+    }
   } else {
     if (!df){
       px <- x |> as.character() |> as.vector()
@@ -65,6 +75,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
                                     prop.r=FALSE,
                                     prop.c=FALSE,
                                     prop.t=TRUE,
+                                    prop.chisq = FALSE,
                                     format=c("SPSS"),
                                     dnn = c(paste(deparse(substitute(x))),
                                             paste(deparse(substitute(y))))
@@ -75,6 +86,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
                                     prop.r=TRUE,
                                     prop.c=FALSE,
                                     prop.t=FALSE,
+                                    prop.chisq = FALSE,
                                     format=c("SPSS"),
                                     dnn = c(paste(deparse(substitute(x))),
                                             paste(deparse(substitute(y))))
@@ -85,6 +97,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
                                     prop.r=FALSE,
                                     prop.c=TRUE,
                                     prop.t=FALSE,
+                                    prop.chisq = FALSE,
                                     format=c("SPSS"),
                                     dnn = c(paste(deparse(substitute(x))),
                                             paste(deparse(substitute(y))))
@@ -95,6 +108,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
                                     prop.r=TRUE,
                                     prop.c=TRUE,
                                     prop.t=TRUE,
+                                    prop.chisq = FALSE,
                                     format=c("SPSS"),
                                     dnn = c(paste(deparse(substitute(x))),
                                             paste(deparse(substitute(y))))

@@ -3,5 +3,6 @@
 #' @import ggtricks
 #' @import waffle
 #' @import ggmosaic
+#' @import ggthemes
 #'
 NULL

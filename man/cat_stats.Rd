@@ -4,7 +4,7 @@
 \alias{cat_stats}
 \title{Obtain Frequencies and Proportions for a Categorical Variable}
 \usage{
-cat_stats(x, y = NULL, prop = "all", df = FALSE)
+cat_stats(x, y = NULL, prop = "all", df = FALSE, pie = FALSE)
 }
 \arguments{
 \item{x}{Vector}
@@ -14,6 +14,8 @@ cat_stats(x, y = NULL, prop = "all", df = FALSE)
 \item{prop}{Character indicating what type of proportions to provide. Defaults to "all".}
 
 \item{df}{Logical indicating to provide a tibble for cross tabulations with table proportions.}
+
+\item{pie}{Logical indicating if you need a df for a single variable pie chart.}
 }
 \description{
 Obtain Frequencies and Proportions for a Categorical Variable
