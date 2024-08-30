@@ -20,6 +20,9 @@ Imports:
     gmodels,
     stringr,
     styler,
+    ggtricks,
+    ggmosaic,
+    waffle,
     rstudioapi
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.3.1
