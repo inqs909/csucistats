@@ -52,7 +52,9 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE){
     pmiss <- miss / length(px) |>  round(digits = 3)
     post <- tbl |> tibble::as_tibble() |>
       tibble::add_column(prop = as.numeric(ptbl)) |>
-      tibble::add_row(px = "mising", n = miss, prop = pmiss)
+      tibble::add_row(px = "total", n = length(x) - miss, prop = NA) |>
+      tibble::add_row(px = "mising", n = miss, prop = NA) |>
+      tibble::add_row(px = "overall total", n = length(x), prop = NA)
     colnames(post) <- c("Category", "n", "prop")
   } else {
     if (!df){
