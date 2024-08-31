@@ -21,8 +21,7 @@ install_themes <- function(){
 #'
 install_plots <- function(){
   install.packages(c("ggplot2", "waffle", "ggmosaic", "ggtricks", "ggtext"))
-  remotes::install_github("R-CoderDotCom/ggcats@main", force = TRUE, upgrade = "never")
-  message("Installed the following packages:\n ggplot2\n waffle\n ggmosaic\n ggtricks\n ggcats")
+  message("Installed the following packages:\n ggplot2\n waffle\n ggmosaic\n ggtricks")
 }
 
 
