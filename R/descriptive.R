@@ -63,7 +63,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
       px <- x |> as.character() |> as.vector()
       tbl <- table(px)
       miss <- sum(is.na(px))
-      post_table <- tbl |> tibble::as_tibble() |>
+      post <- tbl |> tibble::as_tibble() |>
         tibble::add_row(px = "mising", n = miss)
       colnames(post) <- c("Category", "n")
     }
