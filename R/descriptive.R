@@ -52,17 +52,18 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
       ptbl <- prop.table(tbl) |> round(digits = 3)
       miss <- sum(is.na(px))
       pmiss <- miss / length(px) |>  round(digits = 3)
-      post <- tbl |> tibble::as_tibble() |>
+      post_table <- tbl |> tibble::as_tibble() |>
         tibble::add_column(prop = as.numeric(ptbl)) |>
         tibble::add_row(px = "total", n = length(x) - miss, prop = NA) |>
         tibble::add_row(px = "mising", n = miss, prop = NA) |>
         tibble::add_row(px = "overall total", n = length(x), prop = NA)
-      colnames(post) <- c("Category", "n", "prop")
+      colnames(post_table) <- c("Category", "n", "prop")
+      post <- list(table = post_table, categories = unique(px))
     } else {
       px <- x |> as.character() |> as.vector()
       tbl <- table(px)
       miss <- sum(is.na(px))
-      post <- tbl |> tibble::as_tibble() |>
+      post_table <- tbl |> tibble::as_tibble() |>
         tibble::add_row(px = "mising", n = miss)
       colnames(post) <- c("Category", "n")
     }
