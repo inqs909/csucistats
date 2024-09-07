@@ -31,6 +31,18 @@ num_stats <- function(x, tbl = TRUE){
   }
 }
 
+num_by_cat_stats <- function(df, num, cat){
+  if (!is.data.frame(df)){
+    stop("The object 'df' must be a data frame.")
+  }
+  if (!is.numeric(x)){
+    stop("The supplied vector or variable must be numeric.")
+  }
+
+
+
+}
+
 
 #' Obtain Frequencies and Proportions for a Categorical Variable
 #'
@@ -71,9 +83,9 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
       colnames(post) <- c("Category", "n")
     }
   } else {
+    px <- x |> as.character() |> as.vector()
+    py <- y |> as.character() |> as.vector()
     if (!df){
-      px <- x |> as.character() |> as.vector()
-      py <- y |> as.character() |> as.vector()
       if (prop == "table"){
         post <- gmodels::CrossTable(px, py,  digits=1,
                                     prop.r=FALSE,
@@ -121,7 +133,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
     } else {
       wdf <- tibble::tibble(px, py)
       nn <- nrow(wdf)
-      wdf |> dplyr::group_by(px, py) |>
+      post <- wdf |> dplyr::group_by(px, py) |>
         dplyr::summarise(n = dplyr::n(),
                          table_prop = dplyr::n() / nn)
     }
