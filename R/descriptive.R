@@ -31,16 +31,31 @@ num_stats <- function(x, tbl = TRUE){
   }
 }
 
+#' Obtain Numerical Statistics for a Continuous Variable by a Categorical Variable
+#'
+#' @param df An R data frame used for further analysis.
+#' @param num Name of the numerical variable found in the data frame
+#' @param cat Name of the categorical variable found in the data frame
+#'
+#' @export
+#'
 num_by_cat_stats <- function(df, num, cat){
   if (!is.data.frame(df)){
     stop("The object 'df' must be a data frame.")
   }
-  if (!is.numeric(x)){
-    stop("The supplied vector or variable must be numeric.")
-  }
+  post <- df |> dplyr::group_by({{cat}}) |>
+    dplyr::summarise(min = min({{num}}, na.rm = T),
+              q25 = quantile({{num}}, na.rm = T, probs = 0.25) |>  as.numeric(),
+              mean = mean({{num}}, na.rm = T),
+              median = median({{num}}, na.rm = T),
+              q75= quantile({{num}}, na.rm = T, probs = 0.75) |> as.numeric(),
+              max = max({{num}}, na.rm = T),
+              sd = sd({{num}}, na.rm = T),
+              var = var({{num}}, na.rm = T),
+              iqr = IQR({{num}}, na.rm = T),
+              missing = sum(is.na({{num}})))
 
-
-
+  return(post)
 }
 
 
