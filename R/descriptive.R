@@ -8,8 +8,11 @@
 #'
 
 num_stats <- function(x, tbl = TRUE){
-  if (!(is.vector(x) & is.numeric(x))){
-    stop("The supplied vector or variable must be numeric. Use the dollar sign code on your data set.")
+  if (!is.numeric(x)){
+    stop("The supplied vector or variable must be numeric.")
+  }
+  if (!is.vector(x)){
+    stop("Not a vector. Use the dollar sign code on your data set.")
   }
   post <- tibble::tibble(min = min(x, na.rm = T),
     q25 = quantile(x, na.rm = T, probs = 0.25) |>  as.numeric(),

@@ -5,7 +5,7 @@
 #'
 #' @export
 #'
-press <- function(expr, sim){
+reiterate <- function(expr, sim){
   first <- eval(expr)
   if (!is.numeric(first) & !length(first)){
     stop("Make sure the expression gives you only one number.")
