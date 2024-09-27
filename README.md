@@ -20,12 +20,12 @@ You can install the development version of csucistats from
 
 ``` r
 install.packages('csucistats', 
-  repos = c('https://inqs909.r-universe.dev', 
-  'https://cloud.r-project.org'))
+                 repos = c('https://inqs909.r-universe.dev', 
+                           'https://cloud.r-project.org'))
 ```
 
 You may also install this package to be used in quarto webr:
 
     webr::install('csucistats',
-      repos = c('https://inqs909.r-universe.dev', 
-                'https://repo.r-wasm.org'))
+                  repos = c('https://inqs909.r-universe.dev', 
+                            'https://repo.r-wasm.org'))

@@ -21,7 +21,7 @@ install_themes <- function(){
 #'
 install_plots <- function(){
   install.packages(c("ggplot2", "waffle", "ggmosaic", "ggtricks", "ggtext"))
-  message("Installed the following packages:\n ggplot2\n waffle\n ggmosaic\n ggtricks")
+  message("Installed the following packages:\n ggplot2\n waffle\n ggmosaic\n ggtricks \n ggtext")
 }
 
 
