@@ -16,7 +16,7 @@ ar2 <- function(object, data = NULL){
     }
     post <- summary(stats::lm(object, data = data))$adj.r.squared
   } else {
-    post <- summary(object)$r.squared
+    post <- summary(object)$adj.r.squared
   }
   return(post)
 }
