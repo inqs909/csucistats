@@ -5,12 +5,12 @@
 #'
 #' @export
 #'
-reiterate <- function(expr, sim){
+iterate <- function(expr, sim){
   first <- eval(expr)
   if (!is.numeric(first) & !length(first)){
     stop("Make sure the expression gives you only one number.")
   } else {
-   post <- replicate(sim, function(i){eval(expr)})
+   post <- replicate(sim, expr)
   }
   return(tibble::tibble(sim = post))
 }
