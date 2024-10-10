@@ -5,7 +5,7 @@
 #' @export
 #'
 
-unicorn <- function(n){
+unicorns <- function(n){
     colors <- c("White", "Black", "Gray", "Brown", "Pink", "Gold", "Silver")
     genders <- c("Female", "Male", "Non-binary", "Genderfluid", "Agender")
     Age = sample(1:20, n, replace = TRUE)
@@ -36,6 +36,8 @@ unicorn <- function(n){
       Age = Age,
       Gender = sample(genders, n, replace = TRUE),
       Color = sample(colors, n, replace = TRUE),
+      Type_of_Unicorn = Type_of_Unicorn,
+      Type_of_Horn = Type_of_Horn,
       Horn_Length = Horn_Length,
       Horn_Strength = 30 - (4 * Horn_Length / (Horn_Length + 8)) + stats::rnorm(n, 1, 2.3),
       Weight = 100 + 5.8 * Horn_Length + stats::rnorm(n, 1, 25),

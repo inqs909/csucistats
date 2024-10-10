@@ -1,0 +1,26 @@
+#' Unicorn Data
+#'
+#' A simulated dataset about unicorns used for teaching purposes.
+#'
+#' @format A data frame with 750 rows and 15 variables:
+#' \describe{
+#'   \item{Unicorn_ID}{A unique id number}
+#'   \item{Age}{age in years}
+#'   \item{Gender}{The gender of the unicorn (Female, Male, Non-Binary, Genderfluid, Agender)}
+#'   \item{Color}{Color (White, Black, Gray, Brown, Pink, Gold, Silver}
+#'   \item{Type_of_Unicorn}{What type of unicorn is it? (Rainbow, Jewel, Ember, Ruvas)}
+#'   \item{Type_of_Horn}{What type of horn is it? (Opal or Aquamarine)}
+#'   \item{Horn_Length}{Length of the horn (inches)}
+#'   \item{Horn_Strength}{Strength of the Horn (pascals)}
+#'   \item{Weight}{Weight in pounds}
+#'   \item{Health_Score}{Unicorn's overal health (1-10)}
+#'   \item{Personality_Score}{How Personal is the unicorn?}
+#'   \item{Magical_Score}{How magical is the unicorn?}
+#'   \item{Elusiveness_Score}{How elusive is the unicorn?}
+#'   \item{Gentleness_Score}{How gentle is the unicorn?}
+#'   \item{Nature_Score}{How connected to nature is the unicorn?}
+#' }
+#'
+#' @source {csucistats} csucistats R package.
+
+"unicorn_data"
