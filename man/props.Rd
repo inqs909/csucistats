@@ -4,18 +4,16 @@
 \alias{props}
 \title{props Computing proportions}
 \usage{
-props(df, x, y, yval, diff = TRUE)
+props(x, y, yval, diff = FALSE)
 }
 \arguments{
-\item{df}{Name of the data frame}
-
 \item{x}{grouping variable}
 
 \item{y}{outcome of interest}
 
 \item{yval}{category of interest from outcome of interest}
 
-\item{diff}{Obtaine the difference in proportions. Default is TRUE.}
+\item{diff}{Obtaine the difference in proportions. Default is FALSE.}
 }
 \description{
 Compute the proportions of observing a value from a 2 by 2 continguency table
