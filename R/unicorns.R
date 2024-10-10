@@ -31,7 +31,7 @@ unicorns <- function(n){
       stats::rnorm(n, sd = 1.5)
 
     # Create a dataset of n unicorns with Magical_Score, Personality_Score, Mythical_Score, and Type_of_Unicorn
-    unicorns <- data.frame(
+    unicorns <- tibble::tibble(
       Unicorn_ID = 1:n,
       Age = Age,
       Gender = sample(genders, n, replace = TRUE),
