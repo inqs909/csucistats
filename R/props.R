@@ -12,15 +12,9 @@
 props <- function(x, y, yval, diff = FALSE){
   n <- p <- NULL
   df <- tibble::tibble(x = as.character(x), y = as.character(y))
-  suppressMessages(
-    res <- df |> dplyr::group_by(x, y) |>
-      dplyr::summarise(n = n()) |>
-      dplyr::mutate(p = n / sum(n)) |>
-      dplyr::ungroup() |>
-      dplyr::filter(y == as.character(yval)) |>
-      dplyr::select(p) |>
-      unlist()
-  )
+  pre <- table(df$x, df$y) |> prop.table(margin = 1)
+  res <- pre[,as.character(yval)]
+
   if (isTRUE(diff)) {
     post <- as.numeric(diff(res))
   } else {
