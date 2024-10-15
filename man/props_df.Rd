@@ -4,7 +4,7 @@
 \alias{props_df}
 \title{props Computing proportions}
 \usage{
-props_df(df, x, y, yval, diff = TRUE)
+props_df(df, x, y, yval, diff = FALSE)
 }
 \arguments{
 \item{df}{data frame}

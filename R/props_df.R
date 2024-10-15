@@ -10,7 +10,7 @@
 #'
 #' @export
 #'
-props_df <- function(df, x, y, yval, diff = TRUE){
+props_df <- function(df, x, y, yval, diff = FALSE){
   n <- p <- NULL
   suppressMessages(
     res <- df |> dplyr::group_by({{x}}, {{y}}) |>
