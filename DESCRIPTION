@@ -12,8 +12,7 @@ Description: An R package containing functions for statistics courses at CSUCI.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 4.3.0),
-    car
+Depends: R (>= 4.3.0)
 Imports: 
     tibble,
     dplyr,

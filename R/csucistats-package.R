@@ -2,6 +2,5 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom car vif
 ## usethis namespace: end
 NULL
