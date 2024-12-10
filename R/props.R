@@ -5,7 +5,8 @@
 #' @param x grouping variable
 #' @param y outcome of interest
 #' @param yval category of interest from outcome of interest
-#' @param diff Obtaine the difference in proportions. Default is FALSE.
+#' @param diff Obtain the difference in proportions. Default is FALSE.
+#'
 #'
 #' @export
 #'

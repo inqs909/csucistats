@@ -8,6 +8,7 @@
 #' @param yval category of interest from outcome of interest
 #' @param diff Obtaine the difference in proportions. Default is FALSE.
 #'
+#' @import rlang
 #' @export
 #'
 props_df <- function(df, x, y, yval, diff = FALSE){

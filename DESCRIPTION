@@ -18,10 +18,7 @@ Imports:
     dplyr,
     gmodels,
     rlang,
-    stringr,
-    styler,
-    remotes,
-    rstudioapi
+    remotes
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.3.2
 Suggests: 

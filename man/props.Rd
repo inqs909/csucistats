@@ -13,7 +13,7 @@ props(x, y, yval, diff = FALSE)
 
 \item{yval}{category of interest from outcome of interest}
 
-\item{diff}{Obtaine the difference in proportions. Default is FALSE.}
+\item{diff}{Obtain the difference in proportions. Default is FALSE.}
 }
 \description{
 Compute the proportions of observing a value from a 2 by 2 continguency table
