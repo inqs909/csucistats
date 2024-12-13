@@ -16,7 +16,6 @@ Depends: R (>= 4.3.0)
 Imports: 
     tibble,
     dplyr,
-    gmodels,
     rlang,
     remotes
 URL: http://www.inqs.info/csucistats/

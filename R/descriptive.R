@@ -69,19 +69,26 @@ num_by_cat_stats <- function(df, num, cat){
 #'
 #' @export
 #'
-#' @importFrom gmodels CrossTable
+#' @importFrom utils capture.output
+#'
 #'
 cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
   if (!prop %in% c("all", "row", "col", "table")){
-    stop("The prop argument must either be 'all', 'row', 'col', 'table'.")
+    stop(paste(capture.output({
+      cat("The Prop argument can only be on of the following: \n")
+      cat("all: row, column, and table proportions are provided \n")
+      cat("row: row proportions are provided \n")
+      cat("col: column proportions are provided \n")
+      cat("table: table proportions are provided \n")
+    }), collapse = "\n"))
   }
   if (is.null(y)){
-    if (!pie){
-      px <- x |> as.character() |> as.vector()
-      tbl <- table(px)
-      ptbl <- prop.table(tbl) |> round(digits = 3)
-      miss <- sum(is.na(px))
-      pmiss <- miss / length(px) |>  round(digits = 3)
+    px <- x |> as.character() |> as.vector()
+    tbl <- table(px)
+    ptbl <- prop.table(tbl)
+    miss <- sum(is.na(px))
+    pmiss <- miss / length(px)
+    if (pie){
       post_table <- tbl |> tibble::as_tibble() |>
         tibble::add_column(prop = as.numeric(ptbl)) |>
         tibble::add_row(px = "total", n = length(x) - miss, prop = NA) |>
@@ -89,71 +96,104 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, pie = FALSE){
         tibble::add_row(px = "overall total", n = length(x), prop = NA)
       colnames(post_table) <- c("Category", "n", "prop")
       post <- list(table = post_table, categories = unique(px))
+      return(post)
     } else {
-      px <- x |> as.character() |> as.vector()
-      tbl <- table(px)
-      miss <- sum(is.na(px))
-      post <- tbl |> tibble::as_tibble() |>
-        tibble::add_row(px = "mising", n = miss)
-      colnames(post) <- c("Category", "n")
+      post <- cbind(tbl, round(ptbl, 4))
+      colnames(post) <- c("n", "prop")
+      message(paste(capture.output({
+        cat("Continguency Table \n \n")
+        print(post)
+        cat("\n")
+        cat(paste0("Number of Missing: ", miss, "\n"))
+        cat(paste0("Proportion of Missing: ", pmiss, "\n"))
+        cat(paste0("Row Variable:\ " , deparse(substitute(x))))
+      }), collapse = "\n"))
     }
   } else {
-    px <- x |> as.character() |> as.vector()
-    py <- y |> as.character() |> as.vector()
-    if (!df){
-      if (prop == "table"){
-        post <- gmodels::CrossTable(px, py,  digits=1,
-                                    prop.r=FALSE,
-                                    prop.c=FALSE,
-                                    prop.t=TRUE,
-                                    prop.chisq = FALSE,
-                                    format=c("SPSS"),
-                                    dnn = c(paste(deparse(substitute(x))),
-                                            paste(deparse(substitute(y))))
-                                    )
-      }
-      if (prop == "row") {
-        post <- gmodels::CrossTable(px, py,  digits=1,
-                                    prop.r=TRUE,
-                                    prop.c=FALSE,
-                                    prop.t=FALSE,
-                                    prop.chisq = FALSE,
-                                    format=c("SPSS"),
-                                    dnn = c(paste(deparse(substitute(x))),
-                                            paste(deparse(substitute(y))))
-        )
-      }
-      if (prop == "col") {
-        post <- gmodels::CrossTable(px, py,  digits=1,
-                                    prop.r=FALSE,
-                                    prop.c=TRUE,
-                                    prop.t=FALSE,
-                                    prop.chisq = FALSE,
-                                    format=c("SPSS"),
-                                    dnn = c(paste(deparse(substitute(x))),
-                                            paste(deparse(substitute(y))))
-        )
-      }
-      if (prop == "all") {
-        post <- gmodels::CrossTable(px, py,  digits=1,
-                                    prop.r=TRUE,
-                                    prop.c=TRUE,
-                                    prop.t=TRUE,
-                                    prop.chisq = FALSE,
-                                    format=c("SPSS"),
-                                    dnn = c(paste(deparse(substitute(x))),
-                                            paste(deparse(substitute(y))))
-        )
-      }
+    xtab <- table({{x}}, {{y}})
+    tbl_p <- prop.table(xtab) |> round(4)
+    tbl_r <- prop.table(xtab, margin = 1) |> round(4)
+    tbl_c <- prop.table(xtab, margin = 2) |> round(4)
+    tots <- sum(xtab)
+    c_tot <- colSums(xtab)
+    r_tot <- rowSums(xtab)
+    c_props <- c_tot / tots
+    r_props <- r_tot / tots
+
+    if (prop == "all"){
+      props_tbl <- t(sapply(1:nrow(xtab), \(i) {paste(xtab[i,], tbl_p[i,], tbl_r[i,], tbl_c[i,], sep = " / ")}))
+      cols_tbl <- paste(c_tot, round(c_props, 4), sep =  " / ")
+      rows_tbl <- paste(r_tot, round(r_props, 4), sep =  " / ")
+      tbl_pdf <- rbind(cbind(props_tbl, rows_tbl), c(cols_tbl, paste("Total:", tots)))
+      colnames(tbl_pdf) <- c(names(c_tot), "Row Totals")
+      rownames(tbl_pdf) <- c(names(r_tot), "Col Totals")
+
+      message(paste(capture.output({
+        cat("Continguency Table \n \n")
+        print(tbl_pdf)
+        cat("\n")
+        cat("Cell Contents: n / tbl % / row % / col % \n")
+        cat("Col Totals Contents: n / row % \n")
+        cat("Row Totals Contents: n / col % \n")
+        cat(paste0("Column Variable:\ " , deparse(substitute(y)), "\n"))
+        cat(paste0("Row Variable:\ " , deparse(substitute(x))))
+      }), collapse = "\n"))
+    } else if (prop == "row") {
+      props_tbl <- t(sapply(1:nrow(xtab), \(i) {paste(xtab[i,], tbl_r[i,], sep = " / ")}))
+      cols_tbl <- paste(c_tot, round(c_props, 4), sep =  " / ")
+      rows_tbl <- paste(r_tot, round(r_props, 4), sep =  " / ")
+      tbl_pdf <- rbind(cbind(props_tbl, rows_tbl), c(cols_tbl, paste("Total:", tots)))
+      colnames(tbl_pdf) <- c(names(c_tot), "Row Totals")
+      rownames(tbl_pdf) <- c(names(r_tot), "Col Totals")
+
+      message(paste(capture.output({
+        cat("Continguency Table \n \n")
+        print(tbl_pdf)
+        cat("\n")
+        cat("Cell Contents: n / row % \n")
+        cat("Col Totals Contents: n / row % \n")
+        cat("Row Totals Contents: n / col % \n")
+        cat(paste0("Column Variable:\ " , deparse(substitute(y)), "\n"))
+        cat(paste0("Row Variable:\ " , deparse(substitute(x))))
+      }), collapse = "\n"))
+    } else if (prop == "col") {
+      props_tbl <- t(sapply(1:nrow(xtab), \(i) {paste(xtab[i,], tbl_c[i,], sep = " / ")}))
+      cols_tbl <- paste(c_tot, round(c_props, 4), sep =  " / ")
+      rows_tbl <- paste(r_tot, round(r_props, 4), sep =  " / ")
+      tbl_pdf <- rbind(cbind(props_tbl, rows_tbl), c(cols_tbl, paste("Total:", tots)))
+      colnames(tbl_pdf) <- c(names(c_tot), "Row Totals")
+      rownames(tbl_pdf) <- c(names(r_tot), "Col Totals")
+
+      message(paste(capture.output({
+        cat("Continguency Table \n \n")
+        print(tbl_pdf)
+        cat("\n")
+        cat("Cell Contents: n / col % \n")
+        cat("Col Totals Contents: n / row % \n")
+        cat("Row Totals Contents: n / col % \n")
+        cat(paste0("Column Variable:\ " , deparse(substitute(y)), "\n"))
+        cat(paste0("Row Variable:\ " , deparse(substitute(x))))
+      }), collapse = "\n"))
     } else {
-      wdf <- tibble::tibble(px, py)
-      nn <- nrow(wdf)
-      post <- wdf |> dplyr::group_by(px, py) |>
-        dplyr::summarise(n = dplyr::n(),
-                         table_prop = dplyr::n() / nn)
+      props_tbl <- t(sapply(1:nrow(xtab), \(i) {paste(xtab[i,], tbl_p[i,], sep = " / ")}))
+      cols_tbl <- paste(c_tot, round(c_props, 4), sep =  " / ")
+      rows_tbl <- paste(r_tot, round(r_props, 4), sep =  " / ")
+      tbl_pdf <- rbind(cbind(props_tbl, rows_tbl), c(cols_tbl, paste("Total:", tots)))
+      colnames(tbl_pdf) <- c(names(c_tot), "Row Totals")
+      rownames(tbl_pdf) <- c(names(r_tot), "Col Totals")
+
+      message(paste(capture.output({
+        cat("Continguency Table \n \n")
+        print(tbl_pdf)
+        cat("\n")
+        cat("Cell Contents: n / tbl % \n")
+        cat("Col Totals Contents: n / row % \n")
+        cat("Row Totals Contents: n / col % \n")
+        cat(paste0("Column Variable:\ " , deparse(substitute(y)), "\n"))
+        cat(paste0("Row Variable:\ " , deparse(substitute(x))))
+      }), collapse = "\n"))
     }
   }
-  return(post)
 }
 
 
