@@ -1,7 +1,7 @@
 Package: csucistats
 Type: Package
 Title: CSU Channel Islands R Tools
-Version: 0.3.12
+Version: 0.4.0
 Author: c(
   person("Isaac", "Quintanilla Salinas", 
   role = c("aut","cre"), email = "inqs.909@gmail.com",
@@ -14,9 +14,6 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.3.0)
 Imports: 
-    tibble,
-    dplyr,
-    rlang,
     remotes
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.3.2

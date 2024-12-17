@@ -12,6 +12,6 @@ iterate <- function(expr, sim){
   } else {
    post <- replicate(sim, expr)
   }
-  return(tibble::tibble(sim = post))
+  return(data.frame(sim = post))
 }
 

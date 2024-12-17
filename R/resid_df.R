@@ -6,11 +6,11 @@
 #'
 
 resid_df <- function(object){
-  if (!inherits(object, c("lm", "formula"))){
-    stop("Object must be a formula or obtained from the lm() function.")
+  if (!inherits(object, c("lm"))){
+    stop("Object must be obtained from the lm() function.")
   }
 
-  post <- tibble::tibble(obs = 1:nrow(object$model),
+  post <- data.frame(obs = 1:nrow(object$model),
                          object$model,
                          resid = stats::resid(object),
                          fitted = stats::fitted(object),

@@ -8,6 +8,8 @@ resample <- function(df){
   if (!is.data.frame(df)){
     stop("The df object must be a data frame.")
   }
-  dplyr::slice_sample(df, n = nrow(df), replace = T )
+  index <- sample(1:nrow(df), nrow(df), TRUE)
+  post <- df[index,]
+  return(post)
 }
 

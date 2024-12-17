@@ -12,7 +12,7 @@
 #'
 props <- function(x, y, yval, diff = FALSE){
   n <- p <- NULL
-  df <- tibble::tibble(x = as.character(x), y = as.character(y))
+  df <- data.frame(x = as.character(x), y = as.character(y))
   pre <- table(df$x, df$y) |> prop.table(margin = 1)
   res <- pre[,as.character(yval)]
 

@@ -25,7 +25,7 @@ Nature_Connection_Score = (Type_of_Unicorn == "Rainbow") * (-2) +
   stats::rnorm(n, sd = 1.5)
 
 # Create a dataset of n unicorns with Magical_Score, Personality_Score, Mythical_Score, and Type_of_Unicorn
-unicorn_data <- tibble::tibble(
+unicorn_data <- data.frame(
   Unicorn_ID = 1:n,
   Age = Age,
   Gender = sample(genders, n, replace = TRUE),
@@ -42,3 +42,7 @@ unicorn_data <- tibble::tibble(
   Gentleness_Score = Gentle_Score,
   Nature_Score = Nature_Connection_Score
 )
+
+# save(unicorn_data, file = "data/unicorn_data.rda")
+
+

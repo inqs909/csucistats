@@ -6,16 +6,9 @@
 #' @export
 #'
 sse <- function(object, data = NULL){
-  if (!inherits(object, c("lm", "formula"))){
-    stop("Object must be a formula or obtained from the lm() function.")
+  if (!inherits(object, c("lm"))){
+    stop("Object must be obtained from the lm() function.")
   }
-  if (inherits(object, "formula")){
-    if (!is.data.frame(data)){
-      stop("Must supply a data frame in the data argument.")
-    }
-    post <- sum(stats::resid(stats::lm(object, data = data))^2)
-  } else {
-    post <- sum(stats::resid(object)^2)
-  }
+  post <- sum(stats::resid(object)^2)
   return(post)
 }

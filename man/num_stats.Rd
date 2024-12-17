@@ -4,12 +4,14 @@
 \alias{num_stats}
 \title{Obtain Numerical Statistics for a Continuous Variable}
 \usage{
-num_stats(x, tbl = TRUE)
+num_stats(x, tbl = TRUE, digits = 3)
 }
 \arguments{
 \item{x}{A numerical or integer vector.}
 
 \item{tbl}{A logical indicating whether to return a tibble or not, defaults to TRUE.}
+
+\item{digits}{number of decimal places to round}
 }
 \description{
 Obtain Numerical Statistics for a Continuous Variable
