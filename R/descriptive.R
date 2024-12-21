@@ -89,10 +89,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, tbl_df = FALSE, dig
     pmiss <- miss / length(px)
     if (tbl_df){
       post_table <- tbl |> as.data.frame() |>
-        cbind.data.frame(prop = round(as.numeric(ptbl), digits = digits)) |>
-        rbind.data.frame(data.frame(px = "total", Freq = length(x) - miss, prop = NA)) |>
-        rbind.data.frame(data.frame(px = "mising", Freq = miss, prop = NA)) |>
-        rbind.data.frame(data.frame(px = "overall total", Freq = length(x), prop = NA))
+        cbind.data.frame(prop = round(as.numeric(ptbl), digits = digits)) 
       colnames(post_table) <- c("Category", "n", "prop")
       post <- list(table = post_table, categories = unique(px))
       return(post)
