@@ -25,3 +25,29 @@ install_plots <- function(){
 }
 
 
+#' Install R packages used for Math 201
+#'
+#' @export
+#'
+#' @importFrom utils install.packages
+#' @importFrom remotes install_github
+#'
+
+install_m201 <- function(){
+  install.packages(c("waffle", "ggmosaic", 
+                     "ggtricks", "ggtext", "ggthemes",
+                     "tidyverse", "patchwork", "openintro",
+                     "palmerpenguins", "taylor", "DT"))
+  remotes::install_github("MatthewBJane/ThemePark", force = TRUE, upgrade = "never")
+  message(paste(capture.output({
+    cat("Installed the following packages:")
+    cat("\n tidyverse")
+    cat(paste0("\n patchwork", "\n openintro", "\n palmerpenguins"))
+    cat(paste0("\n waffle\n ggmosaic\n ggtricks \n ggtext"))
+    cat(paste0("ggthemes \n ThemePark \n taylor \n DT"))
+  }), collapse = "\n"))
+}
+
+
+
+
