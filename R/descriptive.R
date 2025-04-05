@@ -91,7 +91,7 @@ cat_stats <- function(x, y = NULL, prop = "all", df = FALSE, tbl_df = FALSE, dig
       post_table <- tbl |> as.data.frame() |>
         cbind.data.frame(prop = round(as.numeric(ptbl), digits = digits)) 
       colnames(post_table) <- c("Category", "n", "prop")
-      post <- list(table = post_table, categories = unique(px))
+      post <- list(table = post_table, categories = unique(px), missing = miss)
       return(post)
     } else {
       post <- cbind(tbl, round(ptbl, 4))
@@ -220,7 +220,7 @@ descriptive <- function(df){
   }
 
   if (length(col_names_character) != 0){
-    characters <- df_character |> lapply(cat_stats)
+    characters <- df_character |> lapply(cat_stats, tbl_df = TRUE)
   }
   if (!is.null(numeric) & !is.null(characters)){
     post <- list(Numerical = numeric, Categorical = characters)
