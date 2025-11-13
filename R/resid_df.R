@@ -23,7 +23,7 @@ resid_df <- function(object) {
     )
   } else {
     (inherits(object, "glm"))
-    resid_df <- data.frame(
+    post <- data.frame(
       obs = 1:nrow(object$model),
       object$model,
       fitted = stats::fitted(object),
