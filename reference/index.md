@@ -1,0 +1,57 @@
+# Package index
+
+## All functions
+
+- [`ar2()`](http://www.inqs.info/csucistats/reference/ar2.md) : Obtain
+  the adjusted R-Squared Value from a Linear Model
+- [`b()`](http://www.inqs.info/csucistats/reference/b.md) : Extract
+  regression coefficients from a linear regression model.
+- [`bottom()`](http://www.inqs.info/csucistats/reference/bottom.md) :
+  Obtain the Bottom X Percents
+- [`cat_stats()`](http://www.inqs.info/csucistats/reference/cat_stats.md)
+  : Obtain Frequencies and Proportions for a Categorical Variable
+- [`descriptive()`](http://www.inqs.info/csucistats/reference/descriptive.md)
+  : Obtain Descriptive Statistics from a data frame.
+- [`f()`](http://www.inqs.info/csucistats/reference/f.md) : Extract the
+  F Statistic
+- [`install_m201()`](http://www.inqs.info/csucistats/reference/install_m201.md)
+  : Install R packages used for Math 201
+- [`install_plots()`](http://www.inqs.info/csucistats/reference/install_plots.md)
+  : Install ggplots and other plotting packages
+- [`install_themes()`](http://www.inqs.info/csucistats/reference/install_themes.md)
+  : Install Themes
+- [`iterate()`](http://www.inqs.info/csucistats/reference/iterate.md) :
+  Repeat a task numerous times
+- [`linear_model_info()`](http://www.inqs.info/csucistats/reference/linear_model_info.md)
+  : Extract model information for linear regression.
+- [`logistic_model_info()`](http://www.inqs.info/csucistats/reference/logistic_model_info.md)
+  : Extract model information for logistic regression
+- [`middle()`](http://www.inqs.info/csucistats/reference/middle.md) :
+  Obtain the middle X Percent
+- [`num_by_cat_stats()`](http://www.inqs.info/csucistats/reference/num_by_cat_stats.md)
+  : Obtain Numerical Statistics for a Continuous Variable by a
+  Categorical Variable
+- [`num_stats()`](http://www.inqs.info/csucistats/reference/num_stats.md)
+  : Obtain Numerical Statistics for a Continuous Variable
+- [`props()`](http://www.inqs.info/csucistats/reference/props.md) :
+  props Computing proportions
+- [`r2()`](http://www.inqs.info/csucistats/reference/r2.md) : Obtain the
+  R-Squared Value from a Linear Model
+- [`resample()`](http://www.inqs.info/csucistats/reference/resample.md)
+  : Sample a data frame with replacement
+- [`resid_df()`](http://www.inqs.info/csucistats/reference/resid_df.md)
+  : Extract Residuals and Influential Measures from \`glm\` and \`lm\`
+  object
+- [`se_b()`](http://www.inqs.info/csucistats/reference/se_b.md) :
+  Extract the standard errors of the regression coefficients from a
+  linear regression model.
+- [`shuffle()`](http://www.inqs.info/csucistats/reference/shuffle.md) :
+  Reorder the data of a vector
+- [`sse()`](http://www.inqs.info/csucistats/reference/sse.md) : Compute
+  the sum of error squared for an R object
+- [`top()`](http://www.inqs.info/csucistats/reference/top.md) : Obtain
+  the top X Percent
+- [`unicorn_data`](http://www.inqs.info/csucistats/reference/unicorn_data.md)
+  : Unicorn Data
+- [`unicorns()`](http://www.inqs.info/csucistats/reference/unicorns.md)
+  : Creates a Unicorn Data Set from simulated models.
