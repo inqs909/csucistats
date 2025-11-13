@@ -14,7 +14,8 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.3.0)
 Imports: 
-    remotes
+    remotes,
+    statmod
 URL: http://www.inqs.info/csucistats/
 RoxygenNote: 7.3.2
 Suggests: 

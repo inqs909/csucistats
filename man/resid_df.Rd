@@ -2,13 +2,13 @@
 % Please edit documentation in R/resid_df.R
 \name{resid_df}
 \alias{resid_df}
-\title{Extract Residuals and Influential Measures from and `lm` object}
+\title{Extract Residuals and Influential Measures from `glm` and `lm` object}
 \usage{
 resid_df(object)
 }
 \arguments{
-\item{object}{An R object that contains the results of the `lm` function.}
+\item{object}{An R object that contains the results of the `lm` or `glm` function.}
 }
 \description{
-Extract Residuals and Influential Measures from and `lm` object
+Extract Residuals and Influential Measures from `glm` and `lm` object
 }
