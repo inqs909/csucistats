@@ -13,7 +13,7 @@ An R package containing functions for statistics courses at CSUCI.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.inqs.info/csucistats/}
+  \item \url{https://www.inqs.info/csucistats/}
 }
 
 }
