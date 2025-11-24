@@ -1,7 +1,7 @@
 Package: csucistats
 Type: Package
 Title: CSU Channel Islands R Tools
-Version: 0.5.6
+Version: 0.5.7
 Author: c(
   person("Isaac", "Quintanilla Salinas", 
   role = c("aut","cre"), email = "inqs.909@gmail.com",
