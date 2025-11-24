@@ -6,4 +6,4 @@ An R package containing functions for statistics courses at CSUCI.
 
 Useful links:
 
-- <http://www.inqs.info/csucistats/>
+- <https://www.inqs.info/csucistats/>
